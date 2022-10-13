@@ -86,9 +86,9 @@ class ISIC2019_val:
         else:
             self.image_size = 224 # for VGG
 
-        predefined_root_dir = '/home/jinghao/ISIC_2019_Training_Input' # specify the image dir
-        vali_df = pd.read_csv('/home/jinghao/Fairness/Shallow-Deep-Networks/isic2019_split/isic2019_val_pretraining.csv')
-        test_df = pd.read_csv('/home/jinghao/Fairness/Shallow-Deep-Networks/isic2019_split/isic2019_test_pretraining.csv')
+        predefined_root_dir = '/ISIC_2019_Training_Input' # specify the image dir
+        vali_df = pd.read_csv('/isic2019_split/isic2019_val_pretraining.csv')
+        test_df = pd.read_csv('/isic2019_split/isic2019_test_pretraining.csv')
         use_cuda = torch.cuda.is_available()
         kwargs = {'num_workers': 16, 'pin_memory': True} if use_cuda else {}
 
@@ -169,10 +169,10 @@ class ISIC2019:
         else:
             self.image_size = 224 # for VGG
 
-        predefined_root_dir = '/home/jinghao/ISIC_2019_Training_Input' # specify the image dir
-        train_df = pd.read_csv('/home/jinghao/Fairness/Shallow-Deep-Networks/isic2019_split/isic2019_train_pretraining.csv')
-        vali_df = pd.read_csv('/home/jinghao/Fairness/Shallow-Deep-Networks/isic2019_split/isic2019_val_pretraining.csv')
-        test_df = pd.read_csv('/home/jinghao/Fairness/Shallow-Deep-Networks/isic2019_split/isic2019_test_pretraining.csv')
+        predefined_root_dir = '/ISIC_2019_Training_Input' # specify the image dir
+        train_df = pd.read_csv('/isic2019_train_pretraining.csv')
+        vali_df = pd.read_csv('/isic2019_val_pretraining.csv')
+        test_df = pd.read_csv('/isic2019_test_pretraining.csv')
         use_cuda = torch.cuda.is_available()
         kwargs = {'num_workers': 16, 'pin_memory': True} if use_cuda else {}
         sampler = get_weighted_sampler(train_df, label_level='low')
@@ -239,12 +239,12 @@ class celebA:
         self.batch_size = batch_size
         self.num_classes = 39
 
-        predefined_root_dir_train = '/work/u6088529/datasets/train' # specify the image dir
-        predefined_root_dir_test = '/work/u6088529/datasets/test' # specify the image dir
-        predefined_root_dir_val = '//work/u6088529/datasets/val' # specify the image dir
+        predefined_root_dir_train = '/datasets/train' # specify the image dir
+        predefined_root_dir_test = '/datasets/test' # specify the image dir
+        predefined_root_dir_val = '/datasets/val' # specify the image dir
 
-        df_train_split=pd.read_csv('/home/u6088529/AAAI_2023/dataset/list_eval_partition.csv')
-        df_attr=pd.read_csv('/home/u6088529/AAAI_2023/dataset/list_attr_celeba.csv')
+        df_train_split=pd.read_csv('/dataset/list_eval_partition.csv')
+        df_attr=pd.read_csv('/dataset/list_attr_celeba.csv')
         df_attr.head()
         df_attr.replace(-1,0,inplace=True)
         df_attr.head()
@@ -316,9 +316,9 @@ class prune_celebA:
         self.batch_size = batch_size
         self.num_classes = 39
 
-        predefined_root_dir_train = '/home/u6088529/FSCL/datasets/train' # specify the image dir
-        predefined_root_dir_test = '/home/u6088529/FSCL/datasets/prune_Attractive_Male' # specify the image dir
-        predefined_root_dir_val = '/home/u6088529/FSCL/datasets/val' # specify the image dir
+        predefined_root_dir_train = '/datasets/train' # specify the image dir
+        predefined_root_dir_test = '/datasets/prune_Attractive_Male' # specify the image dir
+        predefined_root_dir_val = '/datasets/val' # specify the image dir
 
         df_train_split=pd.read_csv('./dataset/list_eval_partition.csv')
         df_attr=pd.read_csv('./dataset/list_attr_celeba.csv')
@@ -450,9 +450,9 @@ class UTK:
         self.batch_size = batch_size
         self.num_classes = 39
 
-        predefined_root_dir = '/work/u6088529/UTKFace' # specify the image dir
-        df_train_split=pd.read_csv('/home/u6088529/AAAI_2023/extracted_info.csv')
-        df_attr = pd.read_csv('/home/u6088529/AAAI_2023/extracted_info.csv')
+        predefined_root_dir = '/UTKFace' # specify the image dir
+        df_train_split=pd.read_csv('/extracted_info.csv')
+        df_attr = pd.read_csv('/extracted_info.csv')
         df_attr.head()
         df_attr.replace(-1,0,inplace=True)
         df_attr.head()
