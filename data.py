@@ -330,7 +330,7 @@ class prune_celebA:
         test_df = df_attr[df_train_split['partition']==2]
         use_cuda = torch.cuda.is_available()
         kwargs = {'num_workers': 16, 'pin_memory': True} if use_cuda else {}
-        with open("/home/u6088529/FSCL/prune_attractive_male.pkl", "rb") as fp:   # Unpickling
+        with open("/prune_attractive_male.pkl", "rb") as fp:   # Unpickling
             remove_list = pickle.load(fp)
 
         if model_name == 'ResNet':
